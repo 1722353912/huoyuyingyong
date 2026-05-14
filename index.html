@@ -96,9 +96,18 @@
     <!-- 主内容区 -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <!-- 标题 -->
-        <div class="text-center mb-12 fade-in">
+        <div class="text-center mb-8 fade-in">
             <h1 class="text-5xl font-bold text-dark mb-4">嚯雨优质应用与插件</h1>
             <p class="text-xl text-gray-600">精选全网最实用的工具，提升你的工作效率</p>
+        </div>
+
+        <!-- 搜索框 新增 -->
+        <div class="max-w-2xl mx-auto mb-10 fade-in">
+            <div class="relative">
+                <input id="searchInput" type="text" placeholder="搜索应用、插件名称..." 
+                    class="w-full px-5 py-4 pl-12 rounded-full shadow-lg border-0 focus:ring-2 focus:ring-primary outline-none text-lg">
+                <i class="fa fa-search absolute left-5 top-1/2 -translate-y-1/2 text-gray-400 text-xl"></i>
+            </div>
         </div>
 
         <!-- 标签页切换 -->
@@ -115,50 +124,50 @@
 
         <!-- 应用页面 -->
         <div id="apps-page" class="fade-in">
-            <div class="grid grid-cols-4 gap-8">
+            <div class="grid grid-cols-4 gap-8" id="appsContainer">
                 <!-- 极速浏览器 -->
-                <div class="app-card bg-white rounded-3xl p-8 shadow-lg text-center">
+                <div class="app-card bg-white rounded-3xl p-8 shadow-lg text-center app-item">
                     <div class="w-24 h-24 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-3xl flex items-center justify-center mx-auto mb-6">
                         <i class="fa fa-globe text-white text-4xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-dark mb-3">极速浏览器</h3>
-                    <p class="text-gray-500 mb-6">极速内核，安全防护，广告拦截</p>
+                    <h3 class="text-xl font-bold text-dark mb-3 app-name">极速浏览器</h3>
+                    <p class="text-gray-500 mb-6 app-desc">极速内核，安全防护，广告拦截</p>
                     <button onclick="downloadApp('1')" class="download-btn bg-primary text-white px-8 py-3 rounded-full font-semibold">
                         <i class="fa fa-download mr-2"></i>立即下载
                     </button>
                 </div>
 
                 <!-- 视频播放器 -->
-                <div class="app-card bg-white rounded-3xl p-8 shadow-lg text-center">
+                <div class="app-card bg-white rounded-3xl p-8 shadow-lg text-center app-item">
                     <div class="w-24 h-24 bg-gradient-to-br from-red-500 to-pink-400 rounded-3xl flex items-center justify-center mx-auto mb-6">
                         <i class="fa fa-play-circle text-white text-4xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-dark mb-3">全能视频播放器</h3>
-                    <p class="text-gray-500 mb-6">支持所有格式，高清解码，倍速播放</p>
+                    <h3 class="text-xl font-bold text-dark mb-3 app-name">全能视频播放器</h3>
+                    <p class="text-gray-500 mb-6 app-desc">支持所有格式，高清解码，倍速播放</p>
                     <button onclick="downloadApp('2')" class="download-btn bg-primary text-white px-8 py-3 rounded-full font-semibold">
                         <i class="fa fa-download mr-2"></i>立即下载
                     </button>
                 </div>
 
                 <!-- 压缩工具 -->
-                <div class="app-card bg-white rounded-3xl p-8 shadow-lg text-center">
+                <div class="app-card bg-white rounded-3xl p-8 shadow-lg text-center app-item">
                     <div class="w-24 h-24 bg-gradient-to-br from-green-500 to-emerald-400 rounded-3xl flex items-center justify-center mx-auto mb-6">
                         <i class="fa fa-file-archive-o text-white text-4xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-dark mb-3">万能压缩工具</h3>
-                    <p class="text-gray-500 mb-6">支持RAR/ZIP/7Z，极速压缩解压</p>
+                    <h3 class="text-xl font-bold text-dark mb-3 app-name">万能压缩工具</h3>
+                    <p class="text-gray-500 mb-6 app-desc">支持RAR/ZIP/7Z，极速压缩解压</p>
                     <button onclick="downloadApp('3')" class="download-btn bg-primary text-white px-8 py-3 rounded-full font-semibold">
                         <i class="fa fa-download mr-2"></i>立即下载
                     </button>
                 </div>
 
                 <!-- 截图工具 -->
-                <div class="app-card bg-white rounded-3xl p-8 shadow-lg text-center">
+                <div class="app-card bg-white rounded-3xl p-8 shadow-lg text-center app-item">
                     <div class="w-24 h-24 bg-gradient-to-br from-yellow-500 to-orange-400 rounded-3xl flex items-center justify-center mx-auto mb-6">
                         <i class="fa fa-camera text-white text-4xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-dark mb-3">专业截图工具</h3>
-                    <p class="text-gray-500 mb-6">长截图、标注、OCR识别一应俱全</p>
+                    <h3 class="text-xl font-bold text-dark mb-3 app-name">专业截图工具</h3>
+                    <p class="text-gray-500 mb-6 app-desc">长截图、标注、OCR识别一应俱全</p>
                     <button onclick="downloadApp('4')" class="download-btn bg-primary text-white px-8 py-3 rounded-full font-semibold">
                         <i class="fa fa-download mr-2"></i>立即下载
                     </button>
@@ -168,50 +177,50 @@
 
         <!-- 插件页面 -->
         <div id="plugins-page" class="hidden fade-in">
-            <div class="grid grid-cols-4 gap-8">
+            <div class="grid grid-cols-4 gap-8" id="pluginsContainer">
                 <!-- 谷歌翻译助手 -->
-                <div class="app-card bg-white rounded-3xl p-8 shadow-lg text-center">
+                <div class="app-card bg-white rounded-3xl p-8 shadow-lg text-center app-item">
                     <div class="w-24 h-24 bg-gradient-to-br from-blue-600 to-red-500 rounded-3xl flex items-center justify-center mx-auto mb-6">
                         <i class="fa fa-language text-white text-4xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-dark mb-3">谷歌翻译助手</h3>
-                    <p class="text-gray-500 mb-6">划词翻译，网页整页翻译，多语言支持</p>
+                    <h3 class="text-xl font-bold text-dark mb-3 app-name">谷歌翻译助手</h3>
+                    <p class="text-gray-500 mb-6 app-desc">划词翻译，网页整页翻译，多语言支持</p>
                     <button onclick="downloadApp('google-translate')" class="download-btn bg-primary text-white px-8 py-3 rounded-full font-semibold">
                         <i class="fa fa-download mr-2"></i>立即下载
                     </button>
                 </div>
 
                 <!-- 广告拦截器 -->
-                <div class="app-card bg-white rounded-3xl p-8 shadow-lg text-center">
+                <div class="app-card bg-white rounded-3xl p-8 shadow-lg text-center app-item">
                     <div class="w-24 h-24 bg-gradient-to-br from-purple-500 to-indigo-400 rounded-3xl flex items-center justify-center mx-auto mb-6">
                         <i class="fa fa-shield text-white text-4xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-dark mb-3">广告拦截大师</h3>
-                    <p class="text-gray-500 mb-6">屏蔽所有广告，加速网页加载</p>
+                    <h3 class="text-xl font-bold text-dark mb-3 app-name">广告拦截大师</h3>
+                    <p class="text-gray-500 mb-6 app-desc">屏蔽所有广告，加速网页加载</p>
                     <button onclick="downloadApp('ad-blocker')" class="download-btn bg-primary text-white px-8 py-3 rounded-full font-semibold">
                         <i class="fa fa-download mr-2"></i>立即下载
                     </button>
                 </div>
 
                 <!-- 密码管理器 -->
-                <div class="app-card bg-white rounded-3xl p-8 shadow-lg text-center">
+                <div class="app-card bg-white rounded-3xl p-8 shadow-lg text-center app-item">
                     <div class="w-24 h-24 bg-gradient-to-br from-teal-500 to-cyan-400 rounded-3xl flex items-center justify-center mx-auto mb-6">
                         <i class="fa fa-key text-white text-4xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-dark mb-3">安全密码管理器</h3>
-                    <p class="text-gray-500 mb-6">加密存储，自动填充，跨设备同步</p>
+                    <h3 class="text-xl font-bold text-dark mb-3 app-name">安全密码管理器</h3>
+                    <p class="text-gray-500 mb-6 app-desc">加密存储，自动填充，跨设备同步</p>
                     <button onclick="downloadApp('password-manager')" class="download-btn bg-primary text-white px-8 py-3 rounded-full font-semibold">
                         <i class="fa fa-download mr-2"></i>立即下载
                     </button>
                 </div>
 
                 <!-- PDF工具 -->
-                <div class="app-card bg-white rounded-3xl p-8 shadow-lg text-center">
+                <div class="app-card bg-white rounded-3xl p-8 shadow-lg text-center app-item">
                     <div class="w-24 h-24 bg-gradient-to-br from-rose-500 to-pink-400 rounded-3xl flex items-center justify-center mx-auto mb-6">
                         <i class="fa fa-file-pdf-o text-white text-4xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-dark mb-3">PDF全能工具</h3>
-                    <p class="text-gray-500 mb-6">转换、编辑、合并、拆分一站式解决</p>
+                    <h3 class="text-xl font-bold text-dark mb-3 app-name">PDF全能工具</h3>
+                    <p class="text-gray-500 mb-6 app-desc">转换、编辑、合并、拆分一站式解决</p>
                     <button onclick="downloadApp('pdf-tool')" class="download-btn bg-primary text-white px-8 py-3 rounded-full font-semibold">
                         <i class="fa fa-download mr-2"></i>立即下载
                     </button>
@@ -274,6 +283,22 @@
                 }, 500);
             }, 600);
         }
+
+        // 搜索功能
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('input', function(){
+            let keyword = this.value.trim().toLowerCase();
+            let items = document.querySelectorAll('.app-item');
+            items.forEach(item=>{
+                let name = item.querySelector('.app-name').textContent.toLowerCase();
+                let desc = item.querySelector('.app-desc').textContent.toLowerCase();
+                if(name.includes(keyword) || desc.includes(keyword)){
+                    item.style.display = '';
+                }else{
+                    item.style.display = 'none';
+                }
+            });
+        });
     </script>
 </body>
 </html>
