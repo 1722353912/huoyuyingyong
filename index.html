@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>嚯雨应用 - 精选优质应用与插件下载中心</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://1722353912.github.io/yingyong?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#165DFF',
+                        secondary: '#36CFC9',
+                        accent: '#722ED1',
+                        dark: '#0D1117',
+                        light: '#F9FAFB'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'card': '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
+                        'card-hover': '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)',
+                        'glow': '0 0 20px rgba(22, 93, 255, 0.15)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-gradient {
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            .bg-mesh {
+                background-image: radial-gradient(at 40% 20%, rgba(22, 93, 255, 0.05) 0px, transparent 50%),
+                                  radial-gradient(at 80% 0%, rgba(114, 46, 209, 0.05) 0px, transparent 50%),
+                                  radial-gradient(at 0% 50%, rgba(54, 207, 201, 0.05) 0px, transparent 50%);
+            }
+        }
+    </style>
+</head>
+<body class="bg-light font-sans text-dark">
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center shadow-glow">
+                    <i class="fa fa-cloud-download text-white text-2xl"></i>
+                </div>
+                <h1 class="text-2xl font-bold bg-gradient-to-r from-primary to-accent text-gradient">嚯雨应用</h1>
+            </div>
+            
+            <nav class="hidden md:flex items-center space-x-10">
+                <button id="nav-apps" class="py-2 font-semibold text-lg border-b-2 border-primary text-primary">应用</button>
+                <button id="nav-plugins" class="py-2 font-semibold text-lg text-gray-500 hover:text-primary transition-colors">插件</button>
+            </nav>
+            
+            <div class="hidden md:flex items-center relative">
+                <input 
+                    type="text" 
+                    id="search-input"
+                    placeholder="搜索应用、插件..." 
+                    class="pl-12 pr-6 py-3 rounded-full border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary w-80 bg-gray-50"
+                >
+                <i class="fa fa-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-lg"></i>
+            </div>
+            
+            <button id="mobile-menu-btn" class="md:hidden text-gray-600 text-2xl">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+        
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-100">
+            <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+                <div class="relative">
+                    <input 
+                        type="text" 
+                        id="mobile-search-input"
+                        placeholder="搜索应用、插件..." 
+                        class="pl-12 pr-6 py-3 rounded-full border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary w-full bg-gray-50"
+                    >
+                    <i class="fa fa-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-lg"></i>
+                </div>
+                <div class="flex space-x-4">
+                    <button id="mobile-nav-apps" class="flex-1 py-3 font-semibold text-center rounded-full bg-primary text-white">应用</button>
+                    <button id="mobile-nav-plugins" class="flex-1 py-3 font-semibold text-center rounded-full bg-gray-100 text-gray-700">插件</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="bg-gradient-to-b from-white to-light py-20 bg-mesh">
+        <div class="container mx-auto px-4 text-center">
+            <h2 id="hero-title" class="text-[clamp(2.5rem,6vw,4rem)] font-bold mb-6">
+                精选<span class="bg-gradient-to-r from-primary to-accent text-gradient">优质应用</span>
+            </h2>
+            <p id="hero-subtitle" class="text-gray-600 text-xl max-w-3xl mx-auto mb-10">
+                安全无毒、高速下载、每日更新，为您提供最实用的电脑软件和浏览器插件
+            </p>
+            <div class="flex flex-wrap justify-center gap-6">
+                <div class="bg-white rounded-2xl px-8 py-4 shadow-card flex items-center space-x-3 transition-all hover:shadow-card-hover">
+                    <i class="fa fa-shield text-green-500 text-xl"></i>
+                    <span class="font-medium">安全检测</span>
+                </div>
+                <div class="bg-white rounded-2xl px-8 py-4 shadow-card flex items-center space-x-3 transition-all hover:shadow-card-hover">
+                    <i class="fa fa-bolt text-yellow-500 text-xl"></i>
+                    <span class="font-medium">极速下载</span>
+                </div>
+                <div class="bg-white rounded-2xl px-8 py-4 shadow-card flex items-center space-x-3 transition-all hover:shadow-card-hover">
+                    <i class="fa fa-check-circle text-blue-500 text-xl"></i>
+                    <span class="font-medium">免费使用</span>
+                </div>
+                <div class="bg-white rounded-2xl px-8 py-4 shadow-card flex items-center space-x-3 transition-all hover:shadow-card-hover">
+                    <i class="fa fa-refresh text-purple-500 text-xl"></i>
+                    <span class="font-medium">每日更新</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="container mx-auto px-4 py-16">
+        <div class="mb-12">
+            <h3 class="text-2xl font-semibold mb-6">分类筛选</h3>
+            <div class="flex flex-wrap gap-4">
+                <button class="category-btn bg-primary text-white px-6 py-3 rounded-full font-medium shadow-sm" data-category="all">全部</button>
+                <button class="category-btn bg-white text-gray-700 px-6 py-3 rounded-full font-medium hover:bg-gray-50 transition-colors shadow-sm" data-category="utility">实用工具</button>
+                <button class="category-btn bg-white text-gray-700 px-6 py-3 rounded-full font-medium hover:bg-gray-50 transition-colors shadow-sm" data-category="design">设计创意</button>
+                <button class="category-btn bg-white text-gray-700 px-6 py-3 rounded-full font-medium hover:bg-gray-50 transition-colors shadow-sm" data-category="development">开发工具</button>
+                <button class="category-btn bg-white text-gray-700 px-6 py-3 rounded-full font-medium hover:bg-gray-50 transition-colors shadow-sm" data-category="media">媒体影音</button>
+                <button class="category-btn bg-white text-gray-700 px-6 py-3 rounded-full font-medium hover:bg-gray-50 transition-colors shadow-sm" data-category="office">办公学习</button>
+                <button class="category-btn bg-white text-gray-700 px-6 py-3 rounded-full font-medium hover:bg-gray-50 transition-colors shadow-sm" data-category="security">安全防护</button>
+            </div>
+        </div>
+        
+        <div id="items-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8"></div>
+        
+        <div class="mt-16 text-center">
+            <button id="load-more" class="bg-white border border-gray-200 text-gray-700 px-10 py-4 rounded-full font-medium hover:bg-gray-50 transition-colors shadow-sm">
+                <i class="fa fa-angle-down mr-2"></i>加载更多
+            </button>
+        </div>
+    </main>
+
+    <footer class="bg-dark text-white mt-24 py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center">
+                            <i class="fa fa-cloud-download text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">嚯雨应用</h3>
+                    </div>
+                    <p class="text-gray-400 mb-6">专业的应用与插件下载平台，致力于为用户提供安全、优质、高效的数字资源服务。</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-colors">
+                            <i class="fa fa-github"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-colors">
+                            <i class="fa fa-qq"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-colors">
+                            <i class="fa fa-weibo"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">资源分类</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">实用工具</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">设计创意</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">开发工具</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">媒体影音</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">办公学习</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">帮助支持</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">下载帮助</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">安装教程</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">常见问题</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">提交反馈</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">联系我们</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-6">关于我们</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">关于嚯雨</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">免责声明</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">隐私政策</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">用户协议</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">版权声明</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
+                <p>© 2026 嚯雨应用 版权所有 | 渝ICP备XXXXXXXX号</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const appsData = [
+            {id:1,name:"极速浏览器",description:"轻量级高速浏览器，启动快，占用内存小，内置广告拦截",icon:"fa-globe",category:"utility",size:"45.2 MB",downloads:"12.5万"},
+            {id:2,name:"截图大师Pro",description:"强大的截图工具，支持长截图、标注、录屏和OCR识别",icon:"fa-crop",category:"utility",size:"18.6 MB",downloads:"21.3万"},
+            {id:3,name:"设计工坊",description:"专业图形设计软件，适合UI设计、平面设计和插画创作",icon:"fa-paint-brush",category:"design",size:"256 MB",downloads:"5.3万"},
+            {id:4,name:"VS Code 中文版",description:"轻量级但功能强大的代码编辑器，支持多种编程语言",icon:"fa-code",category:"development",size:"89.5 MB",downloads:"35.7万"},
+            {id:5,name:"剪映专业版",description:"简单易用的视频剪辑软件，支持多种特效和转场",icon:"fa-film",category:"media",size:"389 MB",downloads:"42.8万"},
+            {id:6,name:"WPS Office",description:"全能办公软件，支持Word、Excel、PPT和PDF格式",icon:"fa-file-text-o",category:"office",size:"215 MB",downloads:"68.2万"},
+            {id:7,name:"WinRAR 解压缩",description:"支持多种压缩格式，压缩率高，速度快，兼容性好",icon:"fa-file-archive-o",category:"utility",size:"3.2 MB",downloads:"89.5万"},
+            {id:8,name:"XMind 思维导图",description:"直观的思维导图制作工具，提升思维和工作效率",icon:"fa-sitemap",category:"office",size:"67.2 MB",downloads:"17.6万"},
+            {id:9,name:"火绒安全",description:"轻量级杀毒软件，占用资源少，无广告，防护能力强",icon:"fa-shield",category:"security",size:"25.8 MB",downloads:"56.3万"},
+            {id:10,name:"PotPlayer",description:"全能视频播放器，支持几乎所有音视频格式",icon:"fa-play-circle",category:"media",size:"28.5 MB",downloads:"72.1万"}
+        ];
+
+        const pluginsData = [
+            {id:101,name:"AdBlock 广告拦截",description:"强力拦截网页广告、弹窗和追踪器，提升浏览体验",icon:"fa-ban",category:"utility",size:"1.2 MB",downloads:"125.6万"},
+            {id:102,name:"谷歌翻译助手",description:"支持100+语言的实时翻译，划词翻译更便捷",icon:"fa-language",category:"utility",size:"2.8 MB",downloads:"89.9万"},
+            {id:103,name:"JSON Viewer",description:"格式化和美化JSON数据，方便开发调试",icon:"fa-code",category:"development",size:"0.8 MB",downloads:"42.3万"},
+            {id:104,name:"TinyPNG 图片压缩",description:"无损压缩图片，大幅减小文件大小，提升网站加载速度",icon:"fa-compress",category:"design",size:"1.5 MB",downloads:"35.7万"},
+            {id:105,name:"印象笔记剪藏",description:"一键保存网页内容到印象笔记，支持标注和分类",icon:"fa-sticky-note-o",category:"office",size:"3.2 MB",downloads:"27.4万"},
+            {id:106,name:"Video DownloadHelper",description:"一键下载网页视频，支持多个主流视频平台",icon:"fa-download",category:"media",size:"2.1 MB",downloads:"92.5万"},
+            {id:107,name:"Bitwarden 密码管理器",description:"开源免费的密码管理器，安全存储和自动填充密码",icon:"fa-key",category:"security",size:"4.5 MB",downloads:"65.8万"},
+            {id:108,name:"Dark Reader 暗黑模式",description:"为任意网站开启暗黑模式，保护眼睛健康",icon:"fa-moon-o",category:"utility",size:"0.5 MB",downloads:"131.2万"},
+            {id:109,name:"React Developer Tools",description:"React应用开发调试工具，查看组件结构和状态",icon:"fa-react",category:"development",size:"1.8 MB",downloads:"28.9万"},
+            {id:110,name:"ColorZilla 取色器",description:"网页取色工具，获取任意元素的颜色值",icon:"fa-eyedropper",category:"design",size:"0.6 MB",downloads:"41.2万"}
+        ];
+
+        let currentPage = 'apps';
+        let currentCategory = 'all';
+        let displayedItems = 10;
+        let allItems = [];
+
+        const navApps = document.getElementById('nav-apps');
+        const navPlugins = document.getElementById('nav-plugins');
+        const mobileNavApps = document.getElementById('mobile-nav-apps');
+        const mobileNavPlugins = document.getElementById('mobile-nav-plugins');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const heroTitle = document.getElementById('hero-title');
+        const heroSubtitle = document.getElementById('hero-subtitle');
+        const itemsGrid = document.getElementById('items-grid');
+        const loadMoreBtn = document.getElementById('load-more');
+        const searchInput = document.getElementById('search-input');
+        const mobileSearchInput = document.getElementById('mobile-search-input');
+        const categoryBtns = document.querySelectorAll('.category-btn');
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadItems();
+            setupEventListeners();
+        });
+
+        function setupEventListeners() {
+            navApps.addEventListener('click', () => switchPage('apps'));
+            navPlugins.addEventListener('click', () => switchPage('plugins'));
+            mobileNavApps.addEventListener('click', () => switchPage('apps'));
+            mobileNavPlugins.addEventListener('click', () => switchPage('plugins'));
+            mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+            
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    categoryBtns.forEach(b => {
+                        b.classList.remove('bg-primary', 'text-white');
+                        b.classList.add('bg-white', 'text-gray-700');
+                    });
+                    btn.classList.remove('bg-white', 'text-gray-700');
+                    btn.classList.add('bg-primary', 'text-white');
+                    currentCategory = btn.dataset.category;
+                    displayedItems = 10;
+                    renderItems();
+                });
+            });
+            
+            searchInput.addEventListener('input', debounce(handleSearch, 300));
+            mobileSearchInput.addEventListener('input', debounce(handleSearch, 300));
+            loadMoreBtn.addEventListener('click', loadMoreItems);
+        }
+
+        function switchPage(page) {
+            currentPage = page;
+            currentCategory = 'all';
+            displayedItems = 10;
+            
+            [navApps, mobileNavApps].forEach(el => {
+                if (page === 'apps') {
+                    el.classList.add('border-primary', 'text-primary');
+                    el.classList.remove('text-gray-500', 'bg-gray-100', 'text-gray-700');
+                    if (el === mobileNavApps) el.classList.add('bg-primary', 'text-white');
+                } else {
+                    el.classList.remove('border-primary', 'text-primary', 'bg-primary', 'text-white');
+                    el.classList.add('text-gray-500');
+                    if (el === mobileNavApps) el.classList.add('bg-gray-100', 'text-gray-700');
+                }
+            });
+            
+            [navPlugins, mobileNavPlugins].forEach(el => {
+                if (page === 'plugins') {
+                    el.classList.add('border-primary', 'text-primary');
+                    el.classList.remove('text-gray-500', 'bg-gray-100', 'text-gray-700');
+                    if (el === mobileNavPlugins) el.classList.add('bg-primary', 'text-white');
+                } else {
+                    el.classList.remove('border-primary', 'text-primary', 'bg-primary', 'text-white');
+                    el.classList.add('text-gray-500');
+                    if (el === mobileNavPlugins) el.classList.add('bg-gray-100', 'text-gray-700');
+                }
+            });
+            
+            heroTitle.innerHTML = page === 'apps' 
+                ? '精选<span class="bg-gradient-to-r from-primary to-accent text-gradient">优质应用</span>'
+                : '精选<span class="bg-gradient-to-r from-primary to-accent text-gradient">实用插件</span>';
+            
+            heroSubtitle.textContent = page === 'apps'
+                ? '安全无毒、高速下载、每日更新，为您提供最实用的电脑软件'
+                : '安全无毒、高速下载、每日更新，为您提供最实用的浏览器插件';
+            
+            categoryBtns.forEach(btn => {
+                btn.classList.remove('bg-primary', 'text-white');
+                btn.classList.add('bg-white', 'text-gray-700');
+                if (btn.dataset.category === 'all') {
+                    btn.classList.remove('bg-white', 'text-gray-700');
+                    btn.classList.add('bg-primary', 'text-white');
+                }
+            });
+            
+            searchInput.value = '';
+            mobileSearchInput.value = '';
+            mobileMenu.classList.add('hidden');
+            loadItems();
+        }
+
+        function loadItems() {
+            allItems = currentPage === 'apps' ? [...appsData] : [...pluginsData];
+            renderItems();
+        }
+
+        function renderItems() {
+            itemsGrid.innerHTML = '';
+            let filteredItems = [...allItems];
+            if (currentCategory !== 'all') {
+                filteredItems = filteredItems.filter(item => item.category === currentCategory);
+            }
+            
+            const itemsToShow = filteredItems.slice(0, displayedItems);
+            
+            if (itemsToShow.length === 0) {
+                itemsGrid.innerHTML = `
+                    <div class="col-span-full text-center py-20">
+                        <i class="fa fa-search text-6xl text-gray-300 mb-6"></i>
+                        <p class="text-gray-500 text-xl">没有找到相关${currentPage === 'apps' ? '应用' : '插件'}</p>
+                    </div>
+                `;
+                loadMoreBtn.classList.add('hidden');
+                return;
+            }
+            
+            itemsToShow.forEach(item => {
+                const card = createItemCard(item);
+                itemsGrid.appendChild(card);
+            });
+            
+            loadMoreBtn.classList.toggle('hidden', displayedItems >= filteredItems.length);
+        }
+
+        function createItemCard(item) {
+            const card = document.createElement('div');
+            card.className = 'bg-white rounded-xl shadow-card overflow-hidden transition-all duration-300 hover:shadow-card-hover hover:-translate-y-2 content-auto';
+            
+            card.innerHTML = `
+                <div class="p-6">
+                    <div class="flex items-start space-x-4 mb-5">
+                        <div class="w-16 h-16 bg-gradient-to-br from-primary/10 to-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <i class="fa ${item.icon} text-primary text-2xl"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <h3 class="text-lg font-semibold mb-1 truncate">${item.name}</h3>
+                            <p class="text-gray-500 text-sm mb-3 line-clamp-2">${item.description}</p>
+                            <div class="flex items-center text-xs text-gray-400 space-x-4">
+                                <span><i class="fa fa-download mr-1"></i>${item.downloads}</span>
+                                <span><i class="fa fa-hdd-o mr-1"></i>${item.size}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a 
+                        href="download.html?type=${currentPage === 'apps' ? 'app' : 'plugin'}&id=${item.id}"
+                        class="w-full block text-center bg-gradient-to-r from-primary to-secondary text-white py-3 rounded-lg font-medium transition-all duration-300 hover:shadow-glow active:scale-95"
+                    >
+                        <i class="fa fa-download mr-2"></i>立即下载
+                    </a>
+                </div>
+            `;
+            
+            return card;
+        }
+
+        function loadMoreItems() {
+            displayedItems += 5;
+            renderItems();
+        }
+
+        function handleSearch(e) {
+            const searchTerm = e.target.value.toLowerCase().trim();
+            if (searchTerm === '') {
+                renderItems();
+                return;
+            }
+            
+            const filteredItems = allItems.filter(item => 
+                item.name.toLowerCase().includes(searchTerm) || 
+                item.description.toLowerCase().includes(searchTerm)
+            );
+            
+            displayedItems = filteredItems.length;
+            const tempAllItems = [...allItems];
+            allItems = filteredItems;
+            renderItems();
+            allItems = tempAllItems;
+        }
+
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+    </script>
+</body>
+</html>

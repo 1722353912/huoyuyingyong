@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正在下载 - 嚯雨应用</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://1722353912.github.io/yingyong@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#165DFF',
+                        secondary: '#36CFC9',
+                        accent: '#722ED1',
+                        dark: '#0D1117',
+                        light: '#F9FAFB'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gradient-to-br from-light to-white min-h-screen flex items-center justify-center">
+    <div class="text-center max-w-md mx-auto px-4">
+        <div class="w-24 h-24 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center mx-auto mb-8 shadow-lg">
+            <i class="fa fa-cloud-download text-white text-4xl"></i>
+        </div>
+        <h1 id="title" class="text-3xl font-bold mb-4 text-gray-800">正在准备下载...</h1>
+        <p id="message" class="text-gray-600 mb-8">如果没有自动开始下载，请点击下方按钮</p>
+        <a id="download-btn" href="#" class="inline-block bg-gradient-to-r from-primary to-secondary text-white px-8 py-4 rounded-lg font-medium text-lg shadow-md hover:shadow-lg transition-all">
+            <i class="fa fa-download mr-2"></i>手动下载
+        </a>
+        <p class="mt-8 text-gray-400 text-sm">
+            <a href="index.html" class="text-primary hover:underline">返回首页</a>
+        </p>
+    </div>
+
+    <script>
+        // ======================
+        // 所有下载链接都在这里
+        // ======================
+        const downloadLinks = {
+            app: {
+                1: "https://pan.baidu.com/s/1CdH43s4l3OhxiAnmQ-W41w pwd=gnyi ",
+                2: "应用/截图大师_1144_1256f.exe",
+                3: "https://你的真实下载链接3.exe",
+                4: "https://你的真实下载链接4.exe",
+                5: "https://你的真实下载链接5.exe",
+                6: "https://你的真实下载链接6.exe",
+                7: "https://你的真实下载链接7.exe",
+                8: "https://你的真实下载链接8.exe",
+                9: "https://你的真实下载链接9.exe",
+                10: "https://你的真实下载链接10.exe"
+            },
+            plugin: {
+                101: "https://你的真实插件下载链接1.crx",
+                102: "https://你的真实插件下载链接2.crx",
+                103: "https://你的真实插件下载链接3.crx",
+                104: "https://你的真实插件下载链接4.crx",
+                105: "https://你的真实插件下载链接5.crx",
+                106: "https://你的真实插件下载链接6.crx",
+                107: "https://你的真实插件下载链接7.crx",
+                108: "https://你的真实插件下载链接8.crx",
+                109: "https://你的真实插件下载链接9.crx",
+                110: "https://你的真实插件下载链接10.crx"
+            }
+        };
+
+        // 获取URL参数
+        const urlParams = new URLSearchParams(window.location.search);
+        const type = urlParams.get('type');
+        const id = urlParams.get('id');
+        const title = document.getElementById('title');
+        const message = document.getElementById('message');
+        const downloadBtn = document.getElementById('download-btn');
+
+        // 处理下载
+        if (type && id && downloadLinks[type] && downloadLinks[type][id]) {
+            const downloadUrl = downloadLinks[type][id];
+            downloadBtn.href = downloadUrl;
+            
+            // 自动开始下载
+            setTimeout(() => {
+                window.location.href = downloadUrl;
+            }, 1000);
+        } else {
+            title.textContent = '下载链接不存在';
+            message.textContent = '请检查链接是否正确，或返回首页重新选择';
+            downloadBtn.textContent = '返回首页';
+            downloadBtn.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
