@@ -148,7 +148,7 @@
                     <div class="w-24 h-24 bg-gradient-to-br from-red-500 to-pink-400 rounded-3xl flex items-center justify-center mx-auto mb-6">
                         <i class="fa fa-play-circle text-white text-4xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-dark mb-3 app-name">全能视频播放器</h3>
+                    <h3 class="text-xl font-bold text-dark mb-3 app-name">PotPlayer视频播放器</h3>
                     <p class="text-gray-500 mb-6 app-desc">支持所有格式，高清解码，倍速播放</p>
                     <button onclick="downloadApp('2')" class="download-btn bg-primary text-white px-8 py-3 rounded-full font-semibold">
                         <i class="fa fa-download mr-2"></i>立即下载
@@ -160,8 +160,8 @@
                     <div class="w-24 h-24 bg-gradient-to-br from-green-500 to-emerald-400 rounded-3xl flex items-center justify-center mx-auto mb-6">
                         <i class="fa fa-file-archive-o text-white text-4xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-dark mb-3 app-name">万能压缩工具</h3>
-                    <p class="text-gray-500 mb-6 app-desc">支持RAR/ZIP/7Z，极速压缩解压</p>
+                    <h3 class="text-xl font-bold text-dark mb-3 app-name">bandzip压缩工具</h3>
+                    <p class="text-gray-500 mb-6 app-desc">支持RAR/ZIP/7z等，极速压缩解压</p>
                     <button onclick="downloadApp('3')" class="download-btn bg-primary text-white px-8 py-3 rounded-full font-semibold">
                         <i class="fa fa-download mr-2"></i>立即下载
                     </button>
@@ -172,9 +172,21 @@
                     <div class="w-24 h-24 bg-gradient-to-br from-yellow-500 to-orange-400 rounded-3xl flex items-center justify-center mx-auto mb-6">
                         <i class="fa fa-camera text-white text-4xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-dark mb-3 app-name">专业截图工具</h3>
+                    <h3 class="text-xl font-bold text-dark mb-3 app-name">截图大师工具</h3>
                     <p class="text-gray-500 mb-6 app-desc">长截图、标注、OCR识别一应俱全</p>
                     <button onclick="downloadApp('4')" class="download-btn bg-primary text-white px-8 py-3 rounded-full font-semibold">
+                        <i class="fa fa-download mr-2"></i>立即下载
+                    </button>
+                </div>
+
+                <!-- PixPin截图工具 -->
+                <div class="app-card bg-white rounded-3xl p-8 shadow-lg text-center app-item">
+                    <div class="w-24 h-24 bg-gradient-to-br from-yellow-500 to-orange-400 rounded-3xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fa fa-camera text-white text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-3 app-name">PixPin截图工具</h3>
+                    <p class="text-gray-500 mb-6 app-desc">长截图、标注、OCR识别一应俱全</p>
+                    <button onclick="downloadApp('5')" class="download-btn bg-primary text-white px-8 py-3 rounded-full font-semibold">
                         <i class="fa fa-download mr-2"></i>立即下载
                     </button>
                 </div>
@@ -189,9 +201,9 @@
                     <div class="w-24 h-24 bg-gradient-to-br from-blue-600 to-red-500 rounded-3xl flex items-center justify-center mx-auto mb-6">
                         <i class="fa fa-language text-white text-4xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-dark mb-3 app-name">谷歌翻译助手</h3>
+                    <h3 class="text-xl font-bold text-dark mb-3 app-name">AnyDoc翻译器</h3>
                     <p class="text-gray-500 mb-6 app-desc">划词翻译，网页整页翻译，多语言支持</p>
-                    <button onclick="downloadApp('google-translate')" class="download-btn bg-primary text-white px-8 py-3 rounded-full font-semibold">
+                    <button onclick="downloadApp('AnyDoc')" class="download-btn bg-primary text-white px-8 py-3 rounded-full font-semibold">
                         <i class="fa fa-download mr-2"></i>立即下载
                     </button>
                 </div>
@@ -201,9 +213,9 @@
                     <div class="w-24 h-24 bg-gradient-to-br from-purple-500 to-indigo-400 rounded-3xl flex items-center justify-center mx-auto mb-6">
                         <i class="fa fa-shield text-white text-4xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-dark mb-3 app-name">广告拦截大师</h3>
-                    <p class="text-gray-500 mb-6 app-desc">屏蔽所有广告，加速网页加载</p>
-                    <button onclick="downloadApp('ad-blocker')" class="download-btn bg-primary text-white px-8 py-3 rounded-full font-semibold">
+                    <h3 class="text-xl font-bold text-dark mb-3 app-name">AdGuard 广告拦截器</h3>
+                    <p class="text-gray-500 mb-6 app-desc">屏蔽所有广告，关闭所有广告</p>
+                    <button onclick="downloadApp('AdGuard')" class="download-btn bg-primary text-white px-8 py-3 rounded-full font-semibold">
                         <i class="fa fa-download mr-2"></i>立即下载
                     </button>
                 </div>
@@ -213,9 +225,9 @@
                     <div class="w-24 h-24 bg-gradient-to-br from-teal-500 to-cyan-400 rounded-3xl flex items-center justify-center mx-auto mb-6">
                         <i class="fa fa-key text-white text-4xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-dark mb-3 app-name">安全密码管理器</h3>
-                    <p class="text-gray-500 mb-6 app-desc">加密存储，自动填充，跨设备同步</p>
-                    <button onclick="downloadApp('password-manager')" class="download-btn bg-primary text-white px-8 py-3 rounded-full font-semibold">
+                    <h3 class="text-xl font-bold text-dark mb-3 app-name">NoScript</h3>
+                    <p class="text-gray-500 mb-6 app-desc">允许您选择的信任域名显示活动内容，以防止漏洞利用</p>
+                    <button onclick="downloadApp('NoScript')" class="download-btn bg-primary text-white px-8 py-3 rounded-full font-semibold">
                         <i class="fa fa-download mr-2"></i>立即下载
                     </button>
                 </div>
@@ -227,7 +239,7 @@
                     </div>
                     <h3 class="text-xl font-bold text-dark mb-3 app-name">PDF全能工具</h3>
                     <p class="text-gray-500 mb-6 app-desc">转换、编辑、合并、拆分一站式解决</p>
-                    <button onclick="downloadApp('pdf-tool')" class="download-btn bg-primary text-white px-8 py-3 rounded-full font-semibold">
+                    <button onclick="downloadApp('pdf')" class="download-btn bg-primary text-white px-8 py-3 rounded-full font-semibold">
                         <i class="fa fa-download mr-2"></i>立即下载
                     </button>
                 </div>
